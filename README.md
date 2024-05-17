@@ -15,7 +15,7 @@ Make sure you have Python 3.7 or later installed on your system.
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/ingestion-service.git
+    git clone https://github.com/ymichels/ingestion-service.git
     ```
 
 2. Navigate to the project directory:
