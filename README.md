@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Make sure you have Python 3.7 or later installed on your system.
+Make sure you have Python 3.8 or later installed on your system.
 
 ### Installation
 
