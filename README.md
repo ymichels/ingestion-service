@@ -30,7 +30,8 @@ Make sure you have Python 3.7 or later installed on your system.
     pip install -r requirements.txt
     ```
 
-4. Update config.py with the proper SQS configuration.
+## Configuration
+Set up your AWS credentials and region by modifying the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION` variables in config.py
 
 ## Usage
 
