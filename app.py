@@ -1,15 +1,20 @@
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi import FastAPI, HTTPException
 from cloud_trail_event_model import CloudTrailEvent
-from queue_writer.sqs_queue_writer import SQSQueueWriter
+from queue_publisher.sqs_queue_publisher import SQSQueuePublisher
+from queue_publisher.queue_publisher_interface import QueuePublisherInterface
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 app = FastAPI()
-queue_writer = SQSQueueWriter()
+queue_publisher: QueuePublisherInterface = SQSQueuePublisher(logger)
 
 
 @app.post("/cloudtrail_event/")
 async def cloudtrail_event(event: CloudTrailEvent):
     try:
-        queue_writer.write_to_queue(event)
+        queue_publisher.write_to_queue(event)
         return {"message": "Event received and queued for processing"}
     except Exception as e:
         raise HTTPException(
