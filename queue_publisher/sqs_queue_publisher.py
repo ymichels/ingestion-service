@@ -21,3 +21,4 @@ class SQSQueuePublisher(QueuePublisherInterface):
             )
         except Exception as e:
             self.logger.exception(f"Unexpected error: {e}")
+            raise e
